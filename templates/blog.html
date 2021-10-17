@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">
+  {{ section.title | markdown(inline=true) }}
+</h1>
+
+
+<section class="article-list">
+
+  {% for page in section.pages %}
+
+  <article>
+    <h2>
+      {{ page.title | markdown(inline=true) }}
+    </h2>
+
+    {% if page.summary %}
+    {{ page.summary | markdown | safe }}
+    {% endif %}
+
+    <a href="{{ page.permalink | safe }}">Show more...</a>
+  </article>
+
+  {% endfor %}
+
+</section>
+
+{% endblock content %}

@@ -1,0 +1,67 @@
++++
+title = "Initial commit"
+date = 2019-10-17
++++
+
+This is the first article on this preview. Purely intended to showcase how the
+site is meant to be rendered. For example when it comes to _italics_, *bold* or
+how emoji are displayed! :rocket:
+
+<!-- more -->
+
+# Hierarchy
+
+## Subtitle
+
+### Sub-subtitle
+
+# Elements
+
+## Text
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dictum risus, non mollis ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi quis tellus non tellus blandit varius at in purus. Nunc aliquam in erat semper varius. Nunc id nisl volutpat, mattis orci a, finibus urna. Vivamus mattis, felis sed molestie fermentum, est mi ultricies tortor, eu luctus metus tortor finibus sapien. Etiam eget sapien mauris. Morbi sodales vestibulum lectus eget ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed dignissim lectus sit amet nulla tincidunt sollicitudin.
+
+Curabitur venenatis, elit fringilla dictum ultricies, sem purus commodo metus, eu elementum ipsum erat blandit lorem. Proin tristique, leo in eleifend lobortis, lacus orci sagittis mauris, mattis pharetra mi nunc fringilla libero. Fusce id congue magna.
+
+## Links
+
+We can redirect [somewhere](https://github.com/Punie) or even have footnotes[^footnote] (:construction:) yay!
+
+## Lists
+
+### Ordered
+
+1. Something
+2. Something else
+3. Whatever
+
+### Unordered
+
+- Foo
+- Bar
+- Baz
+
+### Todo
+
+- [x] Take out the trash
+- [ ] Finish these styled
+
+## Code
+
+Code can be `inline` or use code-blocks:
+
+```rs,linenos,hl_lines=8-11
+#[macro_use] extern crate rocket;
+
+#[get("/hello/<name>/<age>")]
+fn hello(name: &str, age: u8) -> String {
+    format!("Hello, {} year old named {}!", age, name)
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/", routes![hello])
+}
+```
+
+[^footnote]: something from the footnote!

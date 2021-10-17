@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">
+  {{ page.title | markdown(inline=true) }}
+</h1>
+
+<!-- \00B7 -->
+
+<p class="subtitle">
+  <time datetime="{{page.date}}">{{ page.date | date(format="%B %e, %Y") }}</time> · {{ page.word_count | num_format }} word{{ page.word_count | pluralize }} · {{ page.reading_time }} min read
+</p>
+
+{{ page.content | safe }}
+
+{% endblock content %}
