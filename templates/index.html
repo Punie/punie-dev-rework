@@ -1,11 +1,75 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<h1 class="title">
-  This is my blog made with Zola.
-</h1>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-<p>Click <a href="/blog/">here</a> to see my posts.</p>
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-{% endblock content %}
+  {% if config.generate_feed %}
+  {% if config.feed_filename == "atom.xml" %}
+  <link rel="alternate" type="application/atom+xml" title="RSS"
+    href="{{ get_url(path=config.feed_filename) | safe }}" />
+  {% else %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+  {% endif %}
+  {% endif %}
+
+  {% block js %}
+  {% endblock %}
+
+  {% block css %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}" />
+  {% endblock %}
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div class="logo">
+      <a href="{{ config.base_url }}">{{ config.title }}</a>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        {% for item in config.extra.menu %}
+        {% set item_url = item.url | replace(from="$BASE_URL", to=config.base_url) %}
+        <li>
+          <a href="{{ item_url }}">
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    {% block content %}
+    <h1 class="title">
+      This is my blog made with Zola.
+    </h1>
+
+    <p>Click <a href="/blog/">here</a> to see my posts.</p>
+    {% endblock %}
+  </main>
+
+  <footer class="footer">
+    {% block footer %} {% endblock %}
+  </footer>
+
+  {% block js_body %}
+  <script src="{{ get_url(path='script.js', trailing_slash=false) }}"></script>
+  {% endblock js_body %}
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://zen-fermi-0cf6fe.netlify.app/"
+base_url = "https://new.punie.dev/"
 
 # The site title and description; used in feeds by default.
 title = "Punie"
@@ -16,6 +16,9 @@ minify_html = false
 
 # When set to "true", a feed is automatically generated.
 generate_feed = true
+
+# The filename to use for the feed. Used as the template filename, too.
+feed_filename = "atom.xml"
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
@@ -40,3 +43,7 @@ smart_punctuation = false
 
 [extra]
 # Put all your custom variables here
+menu = [
+  { title = "Blog", url = "$BASE_URL/blog" },
+  { title = "About", url = "$BASE_URL/about" },
+]

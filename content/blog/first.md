@@ -4,8 +4,8 @@ date = 2019-10-17
 +++
 
 This is the first article on this preview. Purely intended to showcase how the
-site is meant to be rendered. For example when it comes to _italics_, *bold* or
-how emoji are displayed! :rocket:
+site is meant to be rendered. For example when it comes to _italics_, **bold**,
+~~strikethrough~~ or how emojis are displayed! :rocket:
 
 <!-- more -->
 
@@ -19,13 +19,25 @@ how emoji are displayed! :rocket:
 
 ## Text
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dictum risus, non mollis ipsum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi quis tellus non tellus blandit varius at in purus. Nunc aliquam in erat semper varius. Nunc id nisl volutpat, mattis orci a, finibus urna. Vivamus mattis, felis sed molestie fermentum, est mi ultricies tortor, eu luctus metus tortor finibus sapien. Etiam eget sapien mauris. Morbi sodales vestibulum lectus eget ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed dignissim lectus sit amet nulla tincidunt sollicitudin.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dictum
+risus, non mollis ipsum. Interdum et malesuada fames ac ante ipsum primis in
+faucibus. Morbi quis tellus non tellus blandit varius at in purus. Nunc aliquam
+in erat semper varius. Nunc id nisl volutpat, mattis orci a, finibus urna.
+Vivamus mattis, felis sed molestie fermentum, est mi ultricies tortor, eu
+luctus metus tortor finibus sapien. Etiam eget sapien mauris. Morbi sodales
+vestibulum lectus eget ultricies. Vestibulum ante ipsum primis in faucibus orci
+luctus et ultrices posuere cubilia curae; Sed dignissim lectus sit amet nulla
+tincidunt sollicitudin.
 
-Curabitur venenatis, elit fringilla dictum ultricies, sem purus commodo metus, eu elementum ipsum erat blandit lorem. Proin tristique, leo in eleifend lobortis, lacus orci sagittis mauris, mattis pharetra mi nunc fringilla libero. Fusce id congue magna.
+Curabitur venenatis, elit fringilla dictum ultricies, sem purus commodo metus,
+eu elementum ipsum erat blandit lorem. Proin tristique, leo in eleifend
+lobortis, lacus orci sagittis mauris, mattis pharetra mi nunc fringilla libero.
+Fusce id congue magna.
 
 ## Links
 
-We can redirect [somewhere](https://github.com/Punie) or even have footnotes[^footnote] (:construction:) yay!
+We can redirect [somewhere][repo] or even have footnote[^footnote-1] upon
+footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 
 ## Lists
 
@@ -46,6 +58,15 @@ We can redirect [somewhere](https://github.com/Punie) or even have footnotes[^fo
 - [x] Take out the trash
 - [ ] Finish these styled
 
+## Quotes
+
+> Hello there.
+>
+> And here!
+
+> Hello again
+>> Oh hi!
+
 ## Code
 
 Code can be `inline` or use code-blocks:
@@ -64,4 +85,10 @@ fn rocket() -> _ {
 }
 ```
 
-[^footnote]: something from the footnote!
+[^footnote-1]: something from the first footnote!
+
+[^footnote-2]: something from the second footnote!
+
+[^footnote-3]: something from the third footnote!
+
+[repo]: https://github.com/Punie

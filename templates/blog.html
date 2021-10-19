@@ -1,4 +1,6 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
+
+{% block title %}Blog | {{ config.title }}{% endblock title %}
 
 {% block content %}
 
@@ -17,10 +19,10 @@
     </h2>
 
     {% if page.summary %}
-    {{ page.summary | markdown | safe }}
+    {{ page.summary | safe }}
     {% endif %}
 
-    <a href="{{ page.permalink | safe }}">Show more...</a>
+    <a href="{{ page.permalink }}">Show more...</a>
   </article>
 
   {% endfor %}
