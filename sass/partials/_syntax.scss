@@ -1,13 +1,26 @@
 pre {
-  padding: 1em 2em;
-  border-radius: 8px;
-
-  font-family: $font-mono;
-  font-size: 0.875rem;
+  position: relative;
   overflow: auto;
 
+  // padding: 2.5rem 1rem 1rem 1rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+
+  code {
+    font-family: $font-mono;
+    font-size: 0.875rem;
+  }
+
   &[data-linenos] {
-    padding: 1em;
+    // padding: 2.5rem 0 1rem 0;
+    padding: 1rem 0;
+  }
+
+  mark {
+    display: block;
+    width: 100%;
+    color: inherit;
+    background-color: inherit;
   }
 
   table {
@@ -20,19 +33,46 @@ pre {
 
     td:nth-of-type(1) {
       text-align: right;
+      padding-left: 1rem;
       padding-right: 1em;
       opacity: 0.5;
       user-select: none;
     }
-  }
 
-  mark {
-    display: block;
-    color: inherit;
-    background-color: inherit;
-  }
+    td:nth-of-type(2) {
+      padding-right: 1rem;
 
-  td:nth-of-type(2) mark {
-    background-color: $secondary;
+      mark {
+        background-color: $secondary;
+      }
+    }
   }
 }
+
+// $code-type-list: (
+//   rs: "Rust",
+// );
+
+// .z-code::before {
+//   content: "Code";
+
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+
+//   font-family: $font-body;
+//   font-size: 1rem;
+//   font-weight: $semibold;
+
+//   padding: 0.5em 1.5em;
+//   border-radius: 8px 8px 0 0;
+
+//   background-color: $secondary;
+// }
+
+// @each $sign, $text in $code-type-list {
+//   .z-code[data-lang="#{$sign}"]::before {
+//     content: $text;
+//   }
+// }

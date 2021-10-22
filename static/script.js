@@ -3,8 +3,10 @@ const main = () => {
 };
 
 const footnotes = () => {
-  document.querySelectorAll('.footnote-definition').forEach(fn => {
-    const id = fn.id;
+  const footnotes = document.querySelectorAll('.footnote-definition');
+
+  for (const footnote of footnotes) {
+    const id = footnote.id;
     const ref = `${id}-ref`;
 
     document.querySelector(`.footnote-reference > a[href="#${id}"]`).setAttribute('id', ref);
@@ -13,6 +15,14 @@ const footnotes = () => {
     link.appendChild(document.createTextNode('↩️'));
     link.setAttribute('href', `#${ref}`);
 
-    fn.appendChild(link);
-  })
+    footnote.appendChild(link);
+  }
+
+  const footnotesContainer = document.createElement('div');
+  footnotesContainer.setAttribute("class", "footnotes");
+
+  footnotes[0].parentElement.appendChild(footnotesContainer);
+  for (const footnote of footnotes) {
+    footnotesContainer.appendChild(footnote);
+  }
 }

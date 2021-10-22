@@ -2,7 +2,6 @@
 
 @import url("syntax-theme-dark.css");
 // @import url("syntax-theme-light.css");
-@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700&family=Fira+Code&family=Lora:wght@700&display=swap");
 
 @import "partials/variables";
 @import "partials/syntax";
@@ -11,13 +10,17 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
 
   font-family: $font-body;
+  font-weight: $regular;
   color: $primary;
 
   background-color: $bg-light;
@@ -29,14 +32,46 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1em;
+  font-family: $font-title;
 }
 
-a,
-a:hover,
-a:focus {
+a {
+  position: relative;
+  color: $accent;
   text-decoration: none;
-  color: inherit;
+  outline: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    bottom: -0.15em;
+    left: 0;
+
+    width: 100%;
+    height: 0.125em;
+
+    background-color: currentColor;
+
+    transform: scaleX(0);
+    transition: transform 200ms ease-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scaleX(1);
+  }
+}
+
+.zola-anchor {
+  visibility: hidden;
+  font-size: 1.25rem;
+  margin-left: -2rem;
+  margin-right: 0.75rem;
+}
+
+.article h1:hover .zola-anchor {
+  visibility: visible;
 }
 
 .header {
@@ -48,7 +83,12 @@ a:focus {
 
 .logo {
   font-family: $font-title;
+  font-weight: $bold;
   font-size: 3rem;
+
+  a {
+    color: $primary;
+  }
 }
 
 .nav ul {
@@ -65,24 +105,8 @@ a:focus {
 .nav li {
   position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-
-    bottom: -0.25em;
-    left: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background-color: currentColor;
-
-    transform: scaleX(0);
-    transition: transform 100ms ease-in-out;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
+  a {
+    color: $primary;
   }
 }
 
@@ -94,7 +118,7 @@ a:focus {
 
 p {
   margin-block: 1em;
-  line-height: 1.75;
+  line-height: 2;
 
   strong {
     font-weight: $bold;
@@ -123,7 +147,9 @@ p > code {
   padding-inline: 0.5em;
   background-color: $bg-grey;
   border-radius: 4px;
-  font-weight: $bold;
+  font-family: $font-mono;
+  font-size: 0.875rem;
+  font-weight: $semibold;
 }
 
 .article-list article:not(:last-of-type) {
@@ -135,15 +161,15 @@ p > code {
 blockquote {
   position: relative;
 
-  margin-block: 2em;
-  padding: .5em 2em;
-  
+  margin: 2em 0;
+  padding: 0.5em 2em;
+
   background: rgba(blue, 0.075);
   border-left: solid 5px rgba(blue, 0.15);
   border-radius: 4px;
 
   p {
-    margin: .5em;
+    margin: 0.5em;
   }
 
   & > & {
@@ -173,43 +199,45 @@ blockquote {
   // }
 }
 
-// .footnote-definition {
-//   &:first-of-type {
-//     margin-top: 2em;
-//     padding-top: 2em;
-//     border-top: solid 1px rgba($primary, 0.25);
-//   }
+.footnotes {
+  border-top: 2px dashed rgba($primary, 0.25);
+  margin-top: 3rem;
+  padding-top: 2rem;
 
-//   p {
-//     display: inline-block;
-//   }
+  .footnote-definition {
+    padding-left: 3em;
 
-//   &::after {
-//     content: '^';
-//   }
-// }
-.footnote-definition {
-  padding-left: 3em;
+    sup {
+      &.footnote-definition-label {
+        font-size: 100%;
+        position: unset;
+        top: unset;
 
-  &:first-of-type {
-    border-top: 2px dashed rgba($primary, 0.25);
-    margin-top: 3rem;
-    padding-top: 2rem;
-  }
-
-  sup {
-    &.footnote-definition-label {
-      font-size: 100%;
-      position: unset;
-      top: unset;
-
-      &::after {
-        content: '.';
+        &::after {
+          content: ".";
+        }
       }
     }
+
+    p {
+      display: inline;
+    }
+  }
+}
+
+.author {
+  display: flex;
+  align-items: center;
+
+  .author-name {
+    margin: 0;
+    padding-left: 1em;
+
+    font-weight: $bold;
   }
 
-  p {
-    display: inline;
+  .author-picture {
+    display: block;
+    border-radius: 50%;
   }
 }

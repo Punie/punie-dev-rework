@@ -14,7 +14,25 @@
   <time datetime="{{page.date}}">{{ page.date | date(format="%B %e, %Y") }}</time> · {{ page.word_count | num_format }} word{{ page.word_count | pluralize }} · {{ page.reading_time }} min read
 </p>
 
-{{ page.content | safe }}
+
+{% if page.extra.author %}
+
+<div class="author">
+  {% if page.extra.photo %}
+  {% set photo = resize_image(path=page.extra.photo, width=48, height=48, op="fill") %}
+  <img src="{{ photo.url }}" alt="Author picture" class="author-picture" />
+  {% endif %}
+
+  <p class="author-name">
+    {{ page.extra.author }}
+  </p>
+</div>
+
+{% endif %}
+
+<article class="article">
+  {{ page.content | safe }}
+</article>
 
 {% endblock content %}
 
