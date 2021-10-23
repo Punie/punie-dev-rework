@@ -12,8 +12,10 @@ const footnotes = () => {
     document.querySelector(`.footnote-reference > a[href="#${id}"]`).setAttribute('id', ref);
 
     const link = document.createElement('a');
-    link.appendChild(document.createTextNode('↩️'));
     link.setAttribute('href', `#${ref}`);
+    const icon = document.createElement('i');
+    icon.setAttribute('class', 'fas fa-reply')
+    link.appendChild(icon);
 
     footnote.appendChild(link);
   }

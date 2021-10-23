@@ -33,6 +33,12 @@ h4,
 h5,
 h6 {
   font-family: $font-title;
+
+  &:hover {
+    .fa-link {
+      visibility: visible;
+    }
+  }
 }
 
 a {
@@ -64,14 +70,24 @@ a {
 }
 
 .zola-anchor {
-  visibility: hidden;
-  font-size: 1.25rem;
-  margin-left: -2rem;
-  margin-right: 0.75rem;
-}
+  float: left;
+  margin-left: -1.75rem;
+  padding-right: 0.5rem;
 
-.article h1:hover .zola-anchor {
-  visibility: visible;
+  .fa-link {
+    display: contents;
+    visibility: hidden;
+
+    font-size: 1rem;
+
+    &::before {
+      vertical-align: middle;
+    }
+  }
+
+  &::after {
+    content: none;
+  }
 }
 
 .header {
