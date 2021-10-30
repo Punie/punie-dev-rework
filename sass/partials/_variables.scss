@@ -1,16 +1,8 @@
-:root {
-  --font-mono: "Fira Code";
-
-  @supports (font-variation-settings: normal) {
-    --font-mono: "Fira Code VF";
-  }
-}
-
 $font-body: "Georama", -apple-system, BlinkMacSystemFont, "Segoe UI",
   Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 $font-title: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
   Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-$font-mono: var(--font-mono), ui-monospace, SFMono-Regular, SF Mono, Menlo,
+$font-mono: "Fira Code", ui-monospace, SFMono-Regular, SF Mono, Menlo,
   Consolas, Liberation Mono, monospace;
 
 $bg-light: #f8f9fa;
