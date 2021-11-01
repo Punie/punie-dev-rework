@@ -13,7 +13,7 @@
 
   {% for page in section.pages %}
 
-  <article>
+  <article class="article-summary">
     <h2>
       {{ page.title | markdown(inline=true) }}
     </h2>
@@ -22,7 +22,7 @@
     {{ page.summary | safe }}
     {% endif %}
 
-    <a href="{{ page.permalink }}">Show more...</a>
+    <a class="read-more-link" href="{{ page.permalink }}">Read more...</a>
   </article>
 
   {% endfor %}

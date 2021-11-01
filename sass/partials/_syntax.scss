@@ -1,19 +1,22 @@
 pre {
   position: relative;
-  overflow: auto;
 
-  // padding: 2.5rem 1rem 1rem 1rem;
-  padding: 1rem 2rem;
+  padding-top: 2.5rem;
+  // padding: 1rem 2rem;
   border-radius: 8px;
 
   code {
+    display: block;
+    overflow: auto;
+    padding: 1rem 2rem;
     font-family: $font-mono;
     font-size: 0.875rem;
   }
 
   &[data-linenos] {
-    // padding: 2.5rem 0 1rem 0;
-    padding: 1rem 0;
+    code {
+      padding: 1rem 0;
+    }
   }
 
   mark {
@@ -43,36 +46,38 @@ pre {
       padding-right: 1rem;
 
       mark {
-        background-color: $secondary;
+        background-color: $grey70;
       }
     }
   }
 }
 
-// $code-type-list: (
-//   rs: "Rust",
-// );
+$code-type-list: (
+  elm: 'Elm',
+  rs: 'Rust',
+);
 
-// .z-code::before {
-//   content: "Code";
+.z-code::before {
+  content: 'Code';
 
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 
-//   font-family: $font-body;
-//   font-size: 1rem;
-//   font-weight: $semibold;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: $semibold;
 
-//   padding: 0.5em 1.5em;
-//   border-radius: 8px 8px 0 0;
+  padding: 0.5em 1.5em;
+  border-radius: 8px 8px 0 0;
 
-//   background-color: $secondary;
-// }
+  color: $grey20;
+  background-color: $grey70;
+}
 
-// @each $sign, $text in $code-type-list {
-//   .z-code[data-lang="#{$sign}"]::before {
-//     content: $text;
-//   }
-// }
+@each $sign, $text in $code-type-list {
+  .z-code[data-lang='#{$sign}']::before {
+    content: $text;
+  }
+}

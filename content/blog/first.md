@@ -2,9 +2,9 @@
 title = "Initial commit"
 date = 2019-10-17
 
-[extra]
-author = "Hugo Saracino"
-photo = "img/hugo.jpg"
+# [extra]
+# author = "Hugo Saracino"
+# photo = "img/hugo.jpg"
 +++
 
 This is the first article on this preview. Purely intended to showcase how the
@@ -75,19 +75,22 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 
 Code can be `inline` or use code-blocks:
 
-```rs
-#[macro_use] extern crate rocket;
+```elm
+module Main exposing (main)
 
-#[get("/hello/<name>/<age>")]
-fn hello(name: &str, age: u8) -> String {
-    format!("Hello, {} year old named {}!", age, name)
-}
+import Browser
+import Html
 
-#[launch]
-fn rocket() -> _ {
-    rocket::build().mount("/", routes![hello])
-}
+
+main =
+    Browser.sandbox
+        { init = ()
+        , update = \_ _ -> ()
+        , view = \_ -> Html.text "Hello world"
+        }
 ```
+
+and code blocks can display line numbers and highlight specific lines:
 
 ```rs,linenos,hl_lines=8-11
 #[macro_use] extern crate rocket;

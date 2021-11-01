@@ -21,7 +21,7 @@ generate_feed = true
 feed_filename = "atom.xml"
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+build_search_index = true
 
 [markdown]
 # Whether to do syntax highlighting
@@ -47,3 +47,7 @@ menu = [
   { title = "Blog", url = "$BASE_URL/blog" },
   { title = "About", url = "$BASE_URL/about" },
 ]
+
+email = "hugo.saracino@gmail.com"
+github = "https://github.com/Punie"
+twitter = "https://twitter.com/sarachug"
