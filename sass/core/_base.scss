@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: $font-body;
+  font-weight: $regular;
+  color: $primary;
+
+  background-color: $bg-light;
+  transition: color 500ms ease-in-out, background-color 500ms ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-title;
+}
+
+p {
+  margin-block: 1em;
+
+  font-size: 1.125rem;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+
+  strong {
+    font-weight: $bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  del {
+    text-decoration: line-through 3px solid $accent;
+  }
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  outline: none;
+}
+
+#theme-toggle {
+  cursor: pointer;
+  display: grid;
+  padding: 0.375em;
+
+  background-color: $bg-grey;
+  border-radius: 50%;
+}
+
+

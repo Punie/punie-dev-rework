@@ -2,26 +2,29 @@ pre {
   position: relative;
 
   padding-top: 2.5rem;
-  // padding: 1rem 2rem;
+
   border-radius: 8px;
 
   code {
     display: block;
     overflow: auto;
-    padding: 1rem 2rem;
+
+    padding: 0.5rem 1.5rem;
+
     font-family: $font-mono;
     font-size: 0.875rem;
   }
 
   &[data-linenos] {
     code {
-      padding: 1rem 0;
+      padding: 0.5rem 0;
     }
   }
 
   mark {
     display: block;
     width: 100%;
+
     color: inherit;
     background-color: inherit;
   }
@@ -36,14 +39,15 @@ pre {
 
     td:nth-of-type(1) {
       text-align: right;
-      padding-left: 1rem;
-      padding-right: 1em;
+      padding-left: 0.5rem;
+
       opacity: 0.5;
       user-select: none;
     }
 
     td:nth-of-type(2) {
-      padding-right: 1rem;
+      padding-left: 1rem;
+      padding-right: 0.5rem;
 
       mark {
         background-color: $grey70;
@@ -52,7 +56,7 @@ pre {
   }
 }
 
-$code-type-list: (
+$language-shortnames-map: (
   elm: 'Elm',
   rs: 'Rust',
 );
@@ -76,8 +80,8 @@ $code-type-list: (
   background-color: $grey70;
 }
 
-@each $sign, $text in $code-type-list {
-  .z-code[data-lang='#{$sign}']::before {
-    content: $text;
+@each $shortname, $name in $language-shortnames-map {
+  .z-code[data-lang='#{$shortname}']::before {
+    content: $name;
   }
 }

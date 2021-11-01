@@ -35,10 +35,6 @@
   {% endblock fonts %}
 
   {% block css %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}" />
   {% endblock css %}
 </head>
@@ -85,15 +81,15 @@
     {% block footer %}
     <div class="social">
       {% if config.extra.email %}
-      <a href="mailto:{{ config.extra.email }}" target="_blank"><i class="far fa-envelope"></i></a>
+      <a href="mailto:{{ config.extra.email }}" target="_blank"><i data-feather="mail" width="40" height="40"></i></a>
       {% endif %}
 
       {% if config.extra.github %}
-      <a href="{{ config.extra.github }}" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="{{ config.extra.github }}" target="_blank"><i data-feather="github" width="40" height="40"></i></a>
       {% endif %}
 
       {% if config.extra.twitter %}
-      <a href="{{ config.extra.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="{{ config.extra.twitter }}" target="_blank"><i data-feather="twitter" width="40" height="40"></i></a>
       {% endif %}
     </div>
 
@@ -116,7 +112,7 @@
 
   <script>
     feather.replace()
-    
+
     theme();
   </script>
   {% endblock js_body %}

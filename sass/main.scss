@@ -1,31 +1,13 @@
 @charset "utf-8";
 
+@import 'vendors/normalize';
+
 @import url('syntax-theme-dark.css');
-// @import url("syntax-theme-light.css");
 
-@import 'partials/variables';
-@import 'partials/syntax';
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-
-  font-family: $font-body;
-  font-weight: $regular;
-  color: $primary;
-
-  background-color: $bg-light;
-  transition: color 250ms ease-in, background-color 250ms ease-in;
-}
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'core/base';
+@import 'sections/code';
 
 h1,
 h2,
@@ -33,8 +15,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-title;
-
   &:hover {
     .fa-link {
       visibility: visible;
@@ -42,32 +22,99 @@ h6 {
   }
 }
 
-a {
-  position: relative;
-  color: $accent;
-  text-decoration: none;
-  outline: none;
+p a {
+  @include animated-underline;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    bottom: -0.15em;
-    left: 0;
+  padding: 1.5em 3em;
 
-    width: 100%;
-    height: 0.125em;
-
-    background-color: currentColor;
-
-    transform: scaleX(0);
-    transition: transform 200ms ease-out;
+  a {
+    color: $primary;
   }
 
-  &:hover::after,
-  &:focus::after {
-    transform: scaleX(1);
+  @media (max-width: 420px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
   }
+}
+
+.logo {
+  font-family: $font-title;
+  font-weight: $bold;
+  font-size: 4rem;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 1.5rem;
+  font-weight: $semibold;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5em;
+    margin: 0;
+  }
+}
+
+.nav li {
+  a {
+    @include animated-underline;
+  }
+}
+
+.main {
+  margin: 0 auto;
+  padding: 1em 1em;
+
+  max-width: 760px;
+  min-height: 100%;
+
+  @media (min-width: 420px) {
+    padding-inline: 1.5em;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  margin-top: 2rem;
+  padding-block: 3rem;
+
+  font-family: $font-title;
+
+  .social {
+    font-size: 2.5rem;
+  }
+}
+
+.title {
+  font-family: $font-title;
+  font-weight: $bold;
+  font-size: 2rem;
+}
+
+.meta {
+  margin-block: 1em;
+  font-weight: $light;
+  font-size: 0.875rem;
+  color: $secondary;
 }
 
 .zola-anchor {
@@ -88,79 +135,6 @@ a {
 
   &::after {
     content: none;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5em 3em;
-}
-
-.logo {
-  font-family: $font-title;
-  font-weight: $bold;
-  font-size: 3rem;
-
-  a {
-    color: $primary;
-  }
-}
-
-.nav ul {
-  display: flex;
-  align-items: center;
-  gap: 1.5em;
-  padding: 0;
-
-  list-style: none;
-
-  font-size: 1.5rem;
-  font-weight: $semibold;
-}
-
-.nav li {
-  position: relative;
-
-  a {
-    color: $primary;
-  }
-}
-
-.title {
-  font-family: $font-title;
-  font-weight: $bold;
-  font-size: 2rem;
-}
-
-p {
-  font-size: 1.125rem;
-  letter-spacing: 0.005em;
-  margin-block: 1em;
-  line-height: 2;
-
-  strong {
-    font-weight: $bold;
-  }
-}
-
-.meta {
-  margin-block: 1em;
-  font-weight: $light;
-  font-size: 0.875rem;
-  color: $secondary;
-}
-
-.main {
-  margin: 0 auto;
-  padding: 1em 1em;
-
-  max-width: 760px;
-  min-height: 100%;
-
-  @media (min-width: 420px) {
-    padding-inline: 1.5em;
   }
 }
 
@@ -202,24 +176,6 @@ blockquote {
     background: rgba(red, 0.075);
     border-left: solid 5px rgba(red, 0.15);
   }
-
-  // &::before,
-  // &::after {
-  //   position: absolute;
-  //   font-size: 5em;
-  // }
-
-  // &::before {
-  //   content: open-quote;
-  //   top: 0;
-  //   left: 0;
-  // }
-
-  // &::after {
-  //   content: close-quote;
-  //   bottom: 0;
-  //   right: 0;
-  // }
 }
 
 .footnotes {
@@ -229,6 +185,10 @@ blockquote {
 
   .footnote-definition {
     padding-left: 3em;
+
+    @media (max-width: 420px) {
+      padding: 0;
+    }
 
     sup {
       &.footnote-definition-label {
@@ -264,28 +224,3 @@ blockquote {
     border-radius: 50%;
   }
 }
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-
-  margin-top: 2rem;
-  padding-block: 3rem;
-
-  font-family: $font-title;
-
-  .social {
-    font-size: 2.5rem;
-  }
-}
-
-#theme-toggle {
-  cursor: pointer;
-  display: grid;
-  padding: .375em;
-
-  background-color: $bg-grey;
-  border-radius: 50%;
-} 

@@ -8,6 +8,29 @@ $grey70: #495057;
 $grey80: #343a40;
 $grey90: #212529;
 
+
+// $grey-50:#F8FAFC;
+// $grey-100:#F1F5F9;
+// $grey-200:#E2E8F0;
+// $grey-300:#CBD5E1;
+// $grey-400:#94A3B8;
+// $grey-500:#64748B;
+// $grey-600:#475569;
+// $grey-700:#334155;
+// $grey-800:#1E293B;
+// $grey-900:#0F172A;
+
+// $grey-50: #F9FAFB;
+// $grey-100: #F3F4F6;
+// $grey-200: #E5E7EB;
+// $grey-300: #D1D5DB;
+// $grey-400: #9CA3AF;
+// $grey-500: #6B7280;
+// $grey-600: #4B5563;
+// $grey-700: #374151;
+// $grey-800: #1F2937;
+// $grey-900: #111827;
+
 :root[data-theme='light'] {
   --background: #{$grey10};
   --background-grey: #{$grey20};
@@ -43,7 +66,7 @@ $primary: var(--text-primary);
 $secondary: var(--text-secondary);
 $accent: #757bc8;
 
-$light: 200;
-$regular: 300;
+$light: 250;
+$regular: 350;
 $semibold: 500;
 $bold: 650;
