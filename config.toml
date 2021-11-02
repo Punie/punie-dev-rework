@@ -29,8 +29,8 @@ build_search_index = true
 highlight_code = true
 highlight_theme = "css"
 highlight_themes_css = [
-  { theme = "OneHalfDark", filename = "syntax-theme-dark.css" },
-  { theme = "OneHalfLight", filename = "syntax-theme-light.css" },
+  { theme = "OneHalfDark", filename = "styles/syntax-theme-dark.css" },
+  # { theme = "OneHalfLight", filename = "syntax-theme-light.css" },
 ]
 
 # When set to "true", emoji aliases translated to their corresponding

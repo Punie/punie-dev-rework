@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,8 +30,8 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css" />
 
-  <script src="https://kit.fontawesome.com/340a48fbfa.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="{{ get_url(path='vendors/fontawesome/css/all.min.css', trailing_slash=false) }}" />
+  <script src="{{ get_url(path='vendors/feather.min.js', trailing_slash=false) }}"></script>
   {% endblock fonts %}
 
   {% block css %}
@@ -108,7 +108,7 @@
   </footer>
 
   {% block js_body %}
-  <script src="{{ get_url(path='script.js', trailing_slash=false) }}"></script>
+  <script src="{{ get_url(path='scripts/index.js', trailing_slash=false) }}"></script>
 
   <script>
     feather.replace()

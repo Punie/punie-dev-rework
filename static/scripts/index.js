@@ -35,15 +35,23 @@ const footnotes = () => {
 
 const theme = () => {
   const root = document.documentElement;
+  const body = document.querySelector('body');
 
-  const user_prefers_dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const local_data_theme = localStorage.getItem("data-theme");
+  const user_prefers_dark = window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  ).matches;
+  const local_data_theme = localStorage.getItem('data-theme');
 
   if (local_data_theme) {
     root.setAttribute('data-theme', local_data_theme);
   } else if (user_prefers_dark) {
     root.setAttribute('data-theme', 'dark');
   }
+
+  setTimeout(() => {
+    body.style.transition =
+      'color 500ms ease-in-out, background-color 500ms ease-in-out';
+  }, 0);
 
   document.getElementById('theme-toggle').addEventListener('click', () => {
     const currentTheme = root.getAttribute('data-theme');
@@ -56,4 +64,4 @@ const theme = () => {
       localStorage.setItem('data-theme', 'dark');
     }
   });
-}
+};

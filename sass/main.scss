@@ -2,7 +2,7 @@
 
 @import 'vendors/normalize';
 
-@import url('syntax-theme-dark.css');
+@import url('styles/syntax-theme-dark.css');
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
@@ -65,7 +65,7 @@ p a {
   @media (max-width: 420px) {
     flex-direction: column;
     align-items: flex-start;
-    gap: .5em;
+    gap: 0.5em;
     margin: 0;
   }
 }
