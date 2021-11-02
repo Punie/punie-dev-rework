@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1.5em 3em;
+
+  a {
+    color: $primary;
+  }
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+.logo {
+  font-family: $font-title;
+  font-weight: $bold;
+  font-size: 4rem;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 1.5rem;
+  font-weight: $semibold;
+
+  @media (max-width: 420px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+    margin: 0;
+  }
+}
+
+.nav li {
+  a {
+    @include animated-underline;
+  }
+}
