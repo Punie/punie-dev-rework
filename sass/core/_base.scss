@@ -53,13 +53,16 @@ a {
   outline: none;
 }
 
-#theme-toggle {
+#theme-toggle,
+#mobile-theme-toggle {
   cursor: pointer;
+
   display: grid;
-  padding: 0.375em;
+  place-items: center;
+
+  width: 2.5rem;
+  height: 2.5rem;
 
   background-color: $bg-grey;
   border-radius: 50%;
 }
-
-

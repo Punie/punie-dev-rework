@@ -1,11 +1,12 @@
 .main {
-  margin: 0 auto;
-  padding: 1em 1em;
+  margin: 3rem auto 0;
+  padding: 0.5em 1.5em;
 
   max-width: 760px;
   min-height: 100%;
 
-  @media (min-width: 420px) {
-    padding-inline: 1.5em;
+  @media (min-width: 560px) {
+    margin-top: 0;
+    padding: 1em;
   }
 }

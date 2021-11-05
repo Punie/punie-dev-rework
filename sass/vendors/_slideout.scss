@@ -1,0 +1,46 @@
+// https://github.com/mango/slideout
+
+.slideout-menu {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 180px;
+  min-height: 100vh;
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  z-index: 0;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+
+  min-height: 100vh;
+
+  background-color: $bg-light; /* A background-color is required */
+
+  z-index: 1;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}

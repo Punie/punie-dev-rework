@@ -32,6 +32,7 @@
 
   <link rel="stylesheet" href="{{ get_url(path='vendors/fontawesome/css/all.min.css', trailing_slash=false) }}" />
   <script src="{{ get_url(path='vendors/feather.min.js', trailing_slash=false) }}"></script>
+  <script src="{{ get_url(path='vendors/slideout.min.js', trailing_slash=false) }}"></script>
   {% endblock fonts %}
 
   {% block css %}
@@ -41,71 +42,102 @@
 
 <body>
 
-  <header class="header">
-
-    <div class="logo">
-      <a href="{{ config.base_url }}">{{ config.title }}</a>
+  <div id="mobile-navbar" class="mobile-navbar">
+    <div class="mobile-navbar-icon">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
-    <nav class="nav">
-      <ul>
-        {% for item in config.extra.menu %}
-        {% set item_url = item.url | replace(from="$BASE_URL", to=config.base_url) %}
-        <li>
-          <a href="{{ item_url }}">
-            {{ item.title }}
-          </a>
-        </li>
-        {% endfor %}
-        <li id="theme-toggle">
-
-          <i class="dark" data-feather="sun"></i>
-          <i class="light" data-feather="moon"></i>
-
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="main">
-    {% block content %}
-    <h1 class="title">
-      This is my blog made with Zola.
-    </h1>
-
-    <p>Click <a href="/blog/">here</a> to see my posts.</p>
-    {% endblock content %}
-  </main>
-
-  <footer class="footer">
-    {% block footer %}
-    <div class="social">
-      {% if config.extra.email %}
-      <a href="mailto:{{ config.extra.email }}" target="_blank"><i data-feather="mail" width="40" height="40"></i></a>
-      {% endif %}
-
-      {% if config.extra.github %}
-      <a href="{{ config.extra.github }}" target="_blank"><i data-feather="github" width="40" height="40"></i></a>
-      {% endif %}
-
-      {% if config.extra.twitter %}
-      <a href="{{ config.extra.twitter }}" target="_blank"><i data-feather="twitter" width="40" height="40"></i></a>
-      {% endif %}
+    <div class="mobile-header-logo">
+      <a href="/" class="logo">{{ config.title }}</a>
     </div>
 
-    <div>
-      Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> <i class="fas fa-bolt"></i>
+    <div id="mobile-theme-toggle">
+      <i class="dark" data-feather="sun" width="18" height="18"></i>
+      <i class="light" data-feather="moon" width="18" height="18"></i>
     </div>
+  </div>
 
-    <div>
-      Custom theme made with <i class="fas fa-heart"></i> by Punie
-    </div>
+  <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+    <ul class="mobile-menu-list">
+      {% for item in config.extra.menu %}
+      {% set item_url = item.url | replace(from="$BASE_URL", to=config.base_url) %}
+      <li class="mobile-menu-item">
+        <a href="{{ item_url }}">
+          {{ item.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
 
-    <div>
-      <i class="far fa-copyright"></i> 2021 Hugo Saracino
-    </div>
-    {% endblock footer %}
-  </footer>
+  <div id="mobile-panel">
+    <header class="header">
+      <div class="logo">
+        <a href="{{ config.base_url }}">{{ config.title }}</a>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          {% for item in config.extra.menu %}
+          {% set item_url = item.url | replace(from="$BASE_URL", to=config.base_url) %}
+          <li>
+            <a href="{{ item_url }}">
+              {{ item.title }}
+            </a>
+          </li>
+          {% endfor %}
+          <li>
+            <div id="theme-toggle">
+              <i class="dark" data-feather="sun"></i>
+              <i class="light" data-feather="moon"></i>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+      {% block content %}
+      <h1 class="title">
+        This is my blog made with Zola.
+      </h1>
+
+      <p>Click <a href="/blog/">here</a> to see my posts.</p>
+      {% endblock content %}
+    </main>
+
+    <footer class="footer">
+      {% block footer %}
+      <div class="social">
+        {% if config.extra.email %}
+        <a href="mailto:{{ config.extra.email }}" target="_blank"><i data-feather="mail" width="40" height="40"></i></a>
+        {% endif %}
+
+        {% if config.extra.github %}
+        <a href="{{ config.extra.github }}" target="_blank"><i data-feather="github" width="40" height="40"></i></a>
+        {% endif %}
+
+        {% if config.extra.twitter %}
+        <a href="{{ config.extra.twitter }}" target="_blank"><i data-feather="twitter" width="40" height="40"></i></a>
+        {% endif %}
+      </div>
+
+      <div>
+        Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> <i class="fas fa-bolt"></i>
+      </div>
+
+      <div>
+        Custom theme made with <i class="fas fa-heart"></i> by Punie
+      </div>
+
+      <div>
+        <i class="far fa-copyright"></i> 2021 Hugo Saracino
+      </div>
+      {% endblock footer %}
+    </footer>
+  </div>
 
   {% block js_body %}
   <script src="{{ get_url(path='scripts/index.js', trailing_slash=false) }}"></script>
@@ -114,6 +146,8 @@
     feather.replace()
 
     theme();
+
+    initMobileMenu();
   </script>
   {% endblock js_body %}
 

@@ -22,3 +22,121 @@
     transform: scaleX(1);
   }
 }
+
+@mixin mobile-menu-icon() {
+  @keyframes clickfirst {
+    0% {
+      transform: translateY(6px) rotate(0deg);
+    }
+
+    100% {
+      transform: translateY(0) rotate(45deg);
+    }
+  }
+
+  @keyframes clickmid {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes clicklast {
+    0% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+
+    100% {
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+
+  @keyframes outfirst {
+    0% {
+      transform: translateY(0) rotate(-45deg);
+    }
+
+    100% {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+
+  @keyframes outmid {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes outlast {
+    0% {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    100% {
+      transform: translateY(6px) rotate(0deg);
+    }
+  }
+
+  span {
+    position: absolute;
+    /* fallback for browsers which still doesn't support for `calc()` */
+    left: 12px;
+    top: 23.5px;
+    left: calc((100% - 24px) / 2);
+    top: calc((100% - 1px) / 2);
+
+    width: 24px;
+    height: 1px;
+
+    background-color: $primary;
+
+    &:nth-child(1) {
+      transform: translateY(6px) rotate(0deg);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-6px) rotate(0deg);
+    }
+  }
+
+  &.icon-click {
+    span:nth-child(1) {
+      @include animation(500ms, clickfirst);
+    }
+
+    span:nth-child(2) {
+      @include animation(200ms, clickmid);
+    }
+
+    span:nth-child(3) {
+      @include animation(500ms, clicklast);
+    }
+  }
+
+  &.icon-out {
+    span:nth-child(1) {
+      @include animation(500ms, outfirst);
+    }
+
+    span:nth-child(2) {
+      @include animation(200ms, outmid);
+    }
+
+    span:nth-child(3) {
+      @include animation(500ms, outlast);
+    }
+  }
+}
+
+@mixin animation($duration, $name, $mode: both) {
+  animation-duration: $duration;
+  animation-name: $name;
+  animation-fill-mode: $mode;
+}
