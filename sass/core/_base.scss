@@ -11,7 +11,8 @@ html {
 body {
   min-height: 100vh;
 
-  font-family: $font-body;
+  font-family: $font-serif;
+  font-size: 1.125rem;
   font-weight: $regular;
   color: $primary;
 
@@ -24,15 +25,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-title;
+  font-family: $font-sans-serif;
+  font-weight: $bold;
 }
 
 p {
   margin-block: 1em;
 
-  font-size: 1.125rem;
-  line-height: 1.75;
-  letter-spacing: 0.005em;
+  line-height: 175%;
 
   strong {
     font-weight: $bold;

@@ -13,15 +13,13 @@ site is meant to be rendered. For example when it comes to _italics_, **bold**,
 
 <!-- more -->
 
-# Hierarchy
+## Hierarchy
 
-## Subtitle
+### Subtitle
 
-### Sub-subtitle
+## Elements
 
-# Elements
-
-## Text
+### Text
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dictum
 risus, non mollis ipsum. Interdum et malesuada fames ac ante ipsum primis in
@@ -38,31 +36,31 @@ eu elementum ipsum erat blandit lorem. Proin tristique, leo in eleifend
 lobortis, lacus orci sagittis mauris, mattis pharetra mi nunc fringilla libero.
 Fusce id congue magna.
 
-## Links
+### Links
 
 We can redirect [somewhere][repo] or even have footnote[^footnote-1] upon
 footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 
-## Lists
+### Lists
 
-### Ordered
+#### Ordered
 
 1. Something
 2. Something else
 3. Whatever
 
-### Unordered
+#### Unordered
 
 - Foo
 - Bar
 - Baz
 
-### Todo
+#### Todo
 
 - [x] Take out the trash
 - [ ] Finish these styled
 
-## Quotes
+### Quotes
 
 > Hello there.
 >
@@ -71,7 +69,7 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 > Hello again
 >> Oh hi!
 
-## Code
+### Code
 
 Code can be `inline` or use code-blocks:
 
