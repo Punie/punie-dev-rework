@@ -1,37 +1,37 @@
 {% extends "index.html" %}
 
 {% block opengraph %}
-<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:title" content="{{ page.title }}">
 {% if page.summary %}
-<meta property="og:description" content="{{ page.summary | striptags }}" />
+<meta property="og:description" content="{{ page.summary | striptags }}">
 {% else %}
-<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:description" content="{{ page.description }}">
 {% endif %}
-<meta property="og:type" content="article" />
-<meta property="og:url" content="{{ page.permalink }}" />
-<meta property="og:site_name" content="{{ config.title }}" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.permalink }}">
+<meta property="og:site_name" content="{{ config.title }}">
 <meta property="article:published_time" content="{{ page.date }}">
 <meta property="article:modified_time" content="{{ page.updated }}">
 {% if config.extra.author %}
-<meta property="article:author" content="{{ config.extra.author }}" />
+<meta property="article:author" content="{{ config.extra.author }}">
 {% endif %}
 
-<meta itemprop="name" content="{{ page.title }}" />
+<meta itemprop="name" content="{{ page.title }}">
 {% if page.summary %}
-<meta itemprop="description" content="{{ page.summary | striptags }}" />
+<meta itemprop="description" content="{{ page.summary | striptags }}">
 {% else %}
-<meta itemprop="description" content="{{ page.description }}" />
+<meta itemprop="description" content="{{ page.description }}">
 {% endif %}
 <meta itemprop="datePublished" content="{{ page.date | date }}">
 <meta itemprop="dateModified" content="{{ page.updated }}">
 <meta itemprop="wordCount" content="{{ page.word_count }}">
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{ page.title }}" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title }}">
 {% if page.summary %}
-<meta name="twitter:description" content="{{ page.summary | striptags }}" />
+<meta name="twitter:description" content="{{ page.summary | striptags }}">
 {% else %}
-<meta name="twitter:description" content="{{ page.description }}" />
+<meta name="twitter:description" content="{{ page.description }}">
 {% endif %}
 {% endblock opengraph %}
 
@@ -56,7 +56,7 @@
 <div class="author">
   {% if page.extra.photo %}
   {% set photo = resize_image(path=page.extra.photo, width=48, height=48, op="fill") %}
-  <img src="{{ photo.url }}" alt="Author picture" class="author-picture" />
+  <img src="{{ photo.url }}" alt="Author picture" class="author-picture">
   {% endif %}
 
   <p class="author-name">
