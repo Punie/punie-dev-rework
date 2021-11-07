@@ -67,7 +67,8 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 > And here!
 
 > Hello again
->> Oh hi!
+>
+> > Oh hi!
 
 ### Code
 
@@ -105,9 +106,7 @@ fn rocket() -> _ {
 ```
 
 [^footnote-1]: something from the first footnote!
-
 [^footnote-2]: something from the second footnote!
-
 [^footnote-3]: something from the third footnote!
 
 [repo]: https://github.com/Punie
