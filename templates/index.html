@@ -7,6 +7,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
+  {% block opengraph %}
+  <meta property="og:title" content="{{ config.title }}" />
+  <meta property="og:description" content="{{ config.description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ config.base_url }}" />
+
+  <meta itemprop="name" content="{{ config.title }}" />
+  <meta itemprop="description" content="{{ config.description }}" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ config.title }}" />
+  <meta name="twitter:description" content="{{ config.description }}" />
+  {% endblock opengraph %}
+
   <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
   {% if config.generate_feed %}
@@ -19,6 +33,7 @@
   {% endif %}
 
   {% block js %}
+  <script src="{{ get_url(path='vendors/slideout.min.js', trailing_slash=false) }}"></script>
   {% endblock js %}
 
   {% block fonts %}
@@ -28,12 +43,15 @@
     href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300..800&family=Merriweather+Sans:ital,wght@1,300..800&family=Petrona:wght@100..900&family=Petrona:ital,wght@1,100..900&display=swap"
     rel="stylesheet" />
 
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css" />
+  {% endblock fonts %}
 
+  {% block icons %}
   <link rel="stylesheet" href="{{ get_url(path='vendors/fontawesome/css/all.min.css', trailing_slash=false) }}" />
   <script src="{{ get_url(path='vendors/feather.min.js', trailing_slash=false) }}"></script>
-  <script src="{{ get_url(path='vendors/slideout.min.js', trailing_slash=false) }}"></script>
-  {% endblock fonts %}
+  {% endblock icons %}
+
 
   {% block css %}
   <link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}" />
@@ -101,10 +119,38 @@
     <main class="main">
       {% block content %}
       <h1 class="title">
-        This is my blog made with Zola.
+        {{ section.title | markdown(inline=true) }}
       </h1>
 
-      <p>Click <a href="/blog/">here</a> to see my posts.</p>
+
+      <section class="article-list">
+
+        {% for page in paginator.pages %}
+
+        <article class="article-summary">
+          <h2>
+            {{ page.title | markdown(inline=true) }}
+          </h2>
+
+          {% if page.summary %}
+          {{ page.summary | safe }}
+          {% endif %}
+
+          <a class="read-more-link" href="{{ page.permalink }}">Read more...</a>
+        </article>
+
+        {% endfor %}
+
+        <nav>
+          {% if paginator.previous %}
+          <a href="{{ paginator.previous }}">&lt; Previous</a>
+          {% endif %}
+          {% if paginator.next %}
+          <a href="{{ paginator.next }}">Next &gt;</a>
+          {% endif %}
+        </nav>
+
+      </section>
       {% endblock content %}
     </main>
 
