@@ -88,6 +88,10 @@
   }
 
   blockquote {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
     position: relative;
     margin-inline: 0;
     padding: 1.5rem;
@@ -102,6 +106,14 @@
       font-style: italic;
       color: $secondary;
       text-align: center;
+    }
+
+    .author {
+      font-family: $font-sans-serif;
+      font-size: 1.125rem;
+      font-weight: $bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
     &::before {

@@ -1,3 +1,5 @@
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 const theme = () => {
   const $root = document.documentElement;
   const $body = document.querySelector('body');
@@ -39,7 +41,7 @@ const theme = () => {
     .addEventListener('click', toggleTheme);
 };
 
-const initMobileMenu = () => {
+const init_mobile_menu = () => {
   const $mobile_navbar = document.querySelector('#mobile-navbar');
   const $mobile_navbar_icon = document.querySelector('.mobile-navbar-icon');
 
@@ -161,4 +163,14 @@ const copy_button = () => {
   }
 };
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const main = () => {
+  feather.replace();
+
+  theme();
+
+  init_mobile_menu();
+
+  footnotes();
+
+  copy_button();
+};

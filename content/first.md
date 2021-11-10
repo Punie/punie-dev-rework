@@ -65,6 +65,11 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 > Remember Peter, with great power, comes great responsibilities. And I won’t be
 > here for ever to help you!
 
+{% quote(author="Uncle Ben") %}
+Remember Peter, with great power, comes great responsibilities. And I won’t be
+here for ever to help you!
+{% end %}
+
 ### Code
 
 Code can be `inline` or use code-blocks:
