@@ -36,6 +36,9 @@
 }
 
 .article {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+
   h2 {
     font-size: 1.75em;
   }
@@ -212,6 +215,52 @@
 
   p {
     display: inline;
+  }
+}
+
+.posts {
+  display: flex;
+  gap: 5em;
+  justify-content: space-between;
+
+  font-family: $font-sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  a {
+    color: $secondary;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  .next {
+    text-align: end;
+  }
+
+  .prev,
+  .next {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .prev > a::before,
+  .next > a::after {
+    display: block;
+
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+  }
+
+  .prev > a::before {
+    content: '\f104';
+  }
+
+  .next > a::after {
+    content: '\f105';
   }
 }
 

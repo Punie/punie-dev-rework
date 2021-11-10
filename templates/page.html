@@ -70,4 +70,18 @@
   {{ page.content | safe }}
 </article>
 
+<nav class="posts">
+  <div class="prev">
+    {% if page.earlier %}
+    <a href="{{ page.earlier.permalink }}" class="prev">{{ page.earlier.title }}</a>
+    {% endif %}
+  </div>
+
+  <div class="next">
+    {% if page.later %}
+    <a href="{{ page.later.permalink }}" class="next">{{ page.later.title }}</a>
+    {% endif %}
+  </div>
+</nav>
+
 {% endblock content %}
