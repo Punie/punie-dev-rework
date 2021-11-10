@@ -5,27 +5,45 @@ $font-serif: 'Petrona', Georgia, Cambria, 'Times New Roman', Times, serif;
 $font-mono: 'Fira Code', ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
   Liberation Mono, monospace;
 
+$sizes: (
+  'small': 0.875,
+  'baseline': 1,
+  'main': 1.125,
+  'size-6': 1.25,
+  'size-5': 1.5,
+  'size-4': 1.75,
+  'size-3': 2,
+  'size-2': 2.25,
+  'size-1': 3,
+);
+
 $light: 300;
 $regular: 400;
 $medium: 500;
 $semibold: 600;
 $bold: 700;
 
-$grey10: #f8f9fa;
-$grey20: #e9ecef;
-$grey30: #dee2e6;
-$grey40: #ced4da;
-$grey50: #adb5bd;
-$grey60: #6c757d;
-$grey70: #495057;
-$grey80: #343a40;
-$grey90: #212529;
+$grey-50: #f1f4f8ff;
+$grey-100: #e5e9f0ff;
+$grey-200: #d6dde6ff;
+$grey-300: #b0b8c5ff;
+$grey-400: #848f9fff;
+$grey-500: #4d596aff;
+$grey-600: #30394aff;
+$grey-700: #212a3bff;
+$grey-800: #18202fff;
+$grey-900: #101623ff;
+
+$purple: #757bc8;
+$green: #03cea4;
+$red: #ef476f;
 
 :root[data-theme='light'] {
-  --background: #{$grey10};
-  --background-grey: #{$grey20};
-  --text-primary: #{$grey80};
-  --text-secondary: #{$grey70};
+  --background: #{$grey-50};
+  --background-grey: #{$grey-100};
+  --text-primary: #{$grey-900};
+  --text-secondary: #{$grey-700};
+  --accent: #{$green};
 
   .dark {
     display: none;
@@ -33,10 +51,11 @@ $grey90: #212529;
 }
 
 :root[data-theme='dark'] {
-  --background: #{$grey90};
-  --background-grey: #{$grey70};
-  --text-primary: #{$grey10};
-  --text-secondary: #{$grey30};
+  --background: #{$grey-900};
+  --background-grey: #{$grey-800};
+  --text-primary: #{$grey-50};
+  --text-secondary: #{$grey-200};
+  --accent: #{$red};
 
   .light {
     display: none;
@@ -47,4 +66,4 @@ $bg-light: var(--background);
 $bg-grey: var(--background-grey);
 $primary: var(--text-primary);
 $secondary: var(--text-secondary);
-$accent: #757bc8;
+$accent: var(--accent);

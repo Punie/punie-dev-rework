@@ -5,7 +5,7 @@
   max-width: 50rem;
   min-height: 100%;
 
-  @media (min-width: 560px) {
+  @include mq {
     margin-top: 0;
   }
 }

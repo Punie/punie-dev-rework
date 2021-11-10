@@ -1,5 +1,5 @@
 .mobile-navbar {
-  display: none;
+  display: block;
 
   position: fixed;
   top: 0;
@@ -15,6 +15,10 @@
   transition: transform 300ms ease;
 
   z-index: 99;
+
+  @include mq {
+    display: none;
+  }
 
   &.fixed-open {
     transform: translate3d(180px, 0px, 0px);
@@ -48,7 +52,7 @@
 
     transition: background 500ms;
 
-    @include mobile-menu-icon();
+    @include mobile-menu-icon;
   }
 
   #mobile-theme-toggle {
@@ -87,11 +91,5 @@
         color: $accent;
       }
     }
-  }
-}
-
-@media (max-width: 560px) {
-  .mobile-navbar {
-    display: block;
   }
 }

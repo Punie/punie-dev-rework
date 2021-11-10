@@ -1,18 +1,18 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
 
-  max-width: 50rem;
-  margin: auto;
-  padding: 1rem 1.5rem;
+  @include mq {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  a {
-    color: $primary;
-  }
+    max-width: 50rem;
+    margin: auto;
+    padding: 1rem 1.5rem;
 
-  @media (max-width: 560px) {
-    display: none;
+    a {
+      color: $primary;
+    }
   }
 }
 

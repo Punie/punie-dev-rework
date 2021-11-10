@@ -1,0 +1,67 @@
+%heading {
+  font-family: $font-sans-serif;
+  font-weight: $semibold;
+}
+
+%paragraph {
+  font-family: $font-serif;
+  font-weight: $regular;
+}
+
+.heading-1 {
+  @extend %heading;
+  font-size: 3rem;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 2.25rem;
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 2rem;
+}
+
+.heading-4 {
+  @extend %heading;
+  font-size: 1.75rem;
+}
+
+.heading-5 {
+  @extend %heading;
+  font-size: 1.5rem;
+}
+
+.heading-6 {
+  @extend %heading;
+  font-size: 1.25rem;
+}
+
+.subheading {
+  font-family: $font-serif;
+  font-weight: $regular;
+  font-size: 1.5rem;
+}
+
+.overline {
+  font-family: $font-sans-serif;
+  font-weight: $bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.paragraph-1 {
+  @extend %paragraph;
+  font-size: 1.125rem;
+}
+
+.paragraph-2 {
+  @extend %paragraph;
+  font-size: 1rem;
+}
+
+.paragraph-3 {
+  @extend %paragraph;
+  font-size: 0.875rem;
+}

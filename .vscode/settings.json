@@ -1,9 +1,16 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "markdown.extension.italic.indicator": "_",
   "prettier.arrowParens": "avoid",
+  "prettier.proseWrap": "always",
   "prettier.singleQuote": true,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   }
 }

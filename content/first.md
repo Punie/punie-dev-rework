@@ -25,11 +25,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dictum
 risus, non mollis ipsum. Interdum et malesuada fames ac ante ipsum primis in
 faucibus. Morbi quis tellus non tellus blandit varius at in purus. Nunc aliquam
 in erat semper varius. Nunc id nisl volutpat, mattis orci a, finibus urna.
-Vivamus mattis, felis sed molestie fermentum, est mi ultricies tortor, eu
-luctus metus tortor finibus sapien. Etiam eget sapien mauris. Morbi sodales
-vestibulum lectus eget ultricies. Vestibulum ante ipsum primis in faucibus orci
-luctus et ultrices posuere cubilia curae; Sed dignissim lectus sit amet nulla
-tincidunt sollicitudin.
+Vivamus mattis, felis sed molestie fermentum, est mi ultricies tortor, eu luctus
+metus tortor finibus sapien. Etiam eget sapien mauris. Morbi sodales vestibulum
+lectus eget ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et
+ultrices posuere cubilia curae; Sed dignissim lectus sit amet nulla tincidunt
+sollicitudin.
 
 Curabitur venenatis, elit fringilla dictum ultricies, sem purus commodo metus,
 eu elementum ipsum erat blandit lorem. Proin tristique, leo in eleifend
@@ -105,8 +105,25 @@ fn rocket() -> _ {
 }
 ```
 
+### Math
+
+Math expressions can be added as a block:
+
+$$
+\begin{array}{cl}
+\displaystyle\frac{}{0 : \mathtt{Nat}} & {(Rule 1)}
+\\\\ \\\\
+\displaystyle\frac{n : \mathtt{Nat}}{\mathtt{succ}(n) : \mathtt{Nat}} & {(Rule 2)}
+\\\\ \\\\
+\end{array}
+$$
+
+But also displayed inline in a paragraph $x+\sqrt{1-x^2}$ like this!
+
 [^footnote-1]: something from the first footnote!
+
 [^footnote-2]: something from the second footnote!
+
 [^footnote-3]: something from the third footnote!
 
 [repo]: https://github.com/Punie

@@ -4,7 +4,21 @@
   box-sizing: border-box;
 }
 
-html {
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
+
+html:focus-within {
   scroll-behavior: smooth;
 }
 
@@ -15,6 +29,9 @@ body {
   font-size: 1.125rem;
   font-weight: $regular;
   color: $primary;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 
   background-color: $bg-light;
 }
@@ -26,7 +43,11 @@ h4,
 h5,
 h6 {
   font-family: $font-sans-serif;
-  font-weight: $bold;
+  font-weight: $semibold;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 p {
@@ -51,6 +72,13 @@ a {
   color: $accent;
   text-decoration: none;
   outline: none;
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 #theme-toggle,
@@ -63,6 +91,6 @@ a {
   width: 2.5rem;
   height: 2.5rem;
 
-  background-color: $bg-grey;
+  background-color: $accent;
   border-radius: 50%;
 }
