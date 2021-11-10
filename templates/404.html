@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block title %}404 | {{ config.title }}{% endblock title %}
+
+{% block content %}
+
+<div class="four-oh-four">
+  <div id="emoji" class="emoji"></div>
+
+  <div class="message">Four, oh four!</div>
+
+  <div class="home-link">
+    <a href="{{ config.base_url }}">
+      <span class="rocket">
+        <i class="fa-solid fa-shuttle-space"></i>
+        <i class="fa-solid fa-fire-flame-curved"></i>
+      </span>
+      This is the way
+      <span class="rocket">
+        <i class="fa-solid fa-shuttle-space"></i>
+        <i class="fa-solid fa-fire-flame-curved"></i>
+      </span>
+    </a>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block js_body %}
+{{ super() }}
+
+<script>
+  const emojis = ['(o^^)o', '(҂◡_◡)', '¯\\_(ツ)_/¯', '(っ•́｡•́)♪♬', '(⊙.☉)7', 'ƪ(ړײ)ƪ'];
+  const $emoji_container = document.querySelector('#emoji');
+
+  const i = Math.floor(Math.random() * emojis.length);
+
+  $emoji_container.textContent = emojis[i];
+</script>
+{% endblock js_body %}
