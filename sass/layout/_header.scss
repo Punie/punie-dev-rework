@@ -1,42 +1,38 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
 
-  padding: 1.5em 3em;
+  @include mq {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  a {
-    color: $primary;
-  }
+    max-width: calc(max(100vw - 10rem, 50rem));
+    margin: auto;
+    padding: 1rem 1.5rem;
 
-  @media (max-width: 560px) {
-    display: none;
+    a {
+      color: $primary;
+    }
   }
 }
 
 .logo {
-  font-family: $font-title;
+  font-family: $font-serif;
+  font-size: 3rem;
   font-weight: $bold;
-  font-size: 4rem;
+  line-height: 100%;
 }
 
 .nav ul {
   display: flex;
   align-items: center;
-  gap: 1.5em;
+  gap: 1em;
   padding: 0;
 
   list-style: none;
 
   font-size: 1.5rem;
-  font-weight: $semibold;
-
-  @media (max-width: 560px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5em;
-    margin: 0;
-  }
+  font-weight: $medium;
 }
 
 .nav li {

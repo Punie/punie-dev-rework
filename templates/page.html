@@ -1,5 +1,40 @@
 {% extends "index.html" %}
 
+{% block opengraph %}
+<meta property="og:title" content="{{ page.title }}">
+{% if page.summary %}
+<meta property="og:description" content="{{ page.summary | striptags }}">
+{% else %}
+<meta property="og:description" content="{{ page.description }}">
+{% endif %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.permalink }}">
+<meta property="og:site_name" content="{{ config.title }}">
+<meta property="article:published_time" content="{{ page.date }}">
+<meta property="article:modified_time" content="{{ page.updated }}">
+{% if config.extra.author %}
+<meta property="article:author" content="{{ config.extra.author }}">
+{% endif %}
+
+<meta itemprop="name" content="{{ page.title }}">
+{% if page.summary %}
+<meta itemprop="description" content="{{ page.summary | striptags }}">
+{% else %}
+<meta itemprop="description" content="{{ page.description }}">
+{% endif %}
+<meta itemprop="datePublished" content="{{ page.date | date }}">
+<meta itemprop="dateModified" content="{{ page.updated }}">
+<meta itemprop="wordCount" content="{{ page.word_count }}">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title }}">
+{% if page.summary %}
+<meta name="twitter:description" content="{{ page.summary | striptags }}">
+{% else %}
+<meta name="twitter:description" content="{{ page.description }}">
+{% endif %}
+{% endblock opengraph %}
+
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
@@ -8,6 +43,43 @@
   {{ page.title | markdown(inline=true) }}
 </h1>
 
-{{ page.content | safe }}
+<div class="meta">
+  <time datetime="{{ page.date }}">{{ page.date | date(format="%B %e, %Y") }}</time> · {{ page.word_count | num_format
+  }} word{{ page.word_count | pluralize }} · {{ page.reading_time }} min read
+</div>
+
+
+{% if page.extra.author %}
+
+<div class="author">
+  {% if page.extra.photo %}
+  {% set photo = resize_image(path=page.extra.photo, width=48, height=48, op="fill") %}
+  <img src="{{ photo.url }}" alt="Author picture" class="author-picture">
+  {% endif %}
+
+  <p class="author-name">
+    {{ page.extra.author }}
+  </p>
+</div>
+
+{% endif %}
+
+<article class="article">
+  {{ page.content | safe }}
+</article>
+
+<nav class="pages">
+  <div class="prev">
+    {% if page.earlier %}
+    <a href="{{ page.earlier.permalink }}" class="prev">{{ page.earlier.title }}</a>
+    {% endif %}
+  </div>
+
+  <div class="next">
+    {% if page.later %}
+    <a href="{{ page.later.permalink }}" class="next">{{ page.later.title }}</a>
+    {% endif %}
+  </div>
+</nav>
 
 {% endblock content %}

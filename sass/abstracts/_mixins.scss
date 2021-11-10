@@ -1,3 +1,9 @@
+@mixin mq($size: 560px) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
 @mixin animated-underline {
   position: relative;
 
@@ -23,7 +29,7 @@
   }
 }
 
-@mixin mobile-menu-icon() {
+@mixin mobile-menu-icon {
   @keyframes clickfirst {
     0% {
       transform: translateY(6px) rotate(0deg);
