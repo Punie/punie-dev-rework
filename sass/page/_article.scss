@@ -88,24 +88,40 @@
   }
 
   blockquote {
-    margin: 0;
-    padding-inline: 2em;
+    position: relative;
+    margin-inline: 0;
+    padding: 1.5rem;
     background-color: $bg-grey;
     border-radius: 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     p {
+      margin: 0;
       font-family: $font-serif;
       font-size: 1.5rem;
       font-style: italic;
       color: $secondary;
+      text-align: center;
     }
 
-    & > p:first-of-type::before {
+    &::before {
       content: open-quote;
+      position: absolute;
+      top: 0;
+      left: 1rem;
+
+      font-family: $font-serif;
+      font-size: 18rem;
+      line-height: 1;
+      color: $secondary;
+
+      opacity: 0.1;
     }
 
-    & > p:last-of-type::after {
+    &::after {
       content: close-quote;
+      position: absolute;
+      visibility: hidden;
     }
   }
 

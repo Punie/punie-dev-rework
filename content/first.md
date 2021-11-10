@@ -62,13 +62,8 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 
 ### Quotes
 
-> Hello there.
->
-> And here!
-
-> Hello again
->
-> > Oh hi!
+> Remember Peter, with great power, comes great responsibilities. And I won’t be
+> here for ever to help you!
 
 ### Code
 

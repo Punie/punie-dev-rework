@@ -42,7 +42,7 @@ $red: #ef476f;
   --background: #{$grey-50};
   --background-grey: #{$grey-100};
   --text-primary: #{$grey-900};
-  --text-secondary: #{$grey-700};
+  --text-secondary: #{$grey-400};
   --accent: #{$green};
 
   .dark {
@@ -52,9 +52,9 @@ $red: #ef476f;
 
 :root[data-theme='dark'] {
   --background: #{$grey-900};
-  --background-grey: #{$grey-800};
+  --background-grey: #{$grey-700};
   --text-primary: #{$grey-50};
-  --text-secondary: #{$grey-200};
+  --text-secondary: #{$grey-300};
   --accent: #{$red};
 
   .light {
