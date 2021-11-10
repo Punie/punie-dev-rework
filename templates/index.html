@@ -7,6 +7,13 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta name="description" content="{{ config.description }}">
+
   {% block opengraph %}
   <meta property="og:title" content="{{ config.title }}">
   <meta property="og:description" content="{{ config.description }}">
@@ -193,16 +200,19 @@
         {% endif %}
 
         {% if config.extra.github %}
-        <a href="{{ config.extra.github }}" target="_blank"><i data-feather="github" width="40" height="40"></i></a>
+        <a href="{{ config.extra.github }}" target="_blank" rel="noopener noreferrer"><i data-feather="github"
+            width="40" height="40"></i></a>
         {% endif %}
 
         {% if config.extra.twitter %}
-        <a href="{{ config.extra.twitter }}" target="_blank"><i data-feather="twitter" width="40" height="40"></i></a>
+        <a href="{{ config.extra.twitter }}" target="_blank" rel="noopener noreferrer"><i data-feather="twitter"
+            width="40" height="40"></i></a>
         {% endif %}
       </div>
 
       <div>
-        Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> <i class="fas fa-bolt"></i>
+        Powered by <a href="https://www.getzola.org/" target="_blank" rel="noopener noreferrer">Zola</a> <i
+          class="fas fa-bolt"></i>
       </div>
 
       <div>

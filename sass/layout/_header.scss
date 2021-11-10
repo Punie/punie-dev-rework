@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
 
-    max-width: 50rem;
+    max-width: calc(max(100vw - 10rem, 50rem));
     margin: auto;
     padding: 1rem 1.5rem;
 
