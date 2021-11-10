@@ -167,13 +167,18 @@
 
         {% endfor %}
 
-        <nav>
-          {% if paginator.previous %}
-          <a href="{{ paginator.previous }}">&lt; Previous</a>
-          {% endif %}
-          {% if paginator.next %}
-          <a href="{{ paginator.next }}">Next &gt;</a>
-          {% endif %}
+        <nav class="pages">
+          <div class="prev">
+            {% if paginator.previous %}
+            <a href="{{ paginator.previous }}" class="prev">Previous</a>
+            {% endif %}
+          </div>
+
+          <div class="next">
+            {% if paginator.next %}
+            <a href="{{ paginator.next }}" class="next">Next</a>
+            {% endif %}
+          </div>
         </nav>
 
       </section>

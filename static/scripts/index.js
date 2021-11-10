@@ -108,6 +108,8 @@ const footnotes = () => {
     const $icon = document.createElement('i');
     $icon.setAttribute('class', 'fas fa-reply');
 
+    $footnote.setAttribute('tabindex', '-1');
+
     $backlink.appendChild($icon);
     $footnote.appendChild($backlink);
     $footnotes_container.appendChild($footnote);
@@ -163,6 +165,18 @@ const copy_button = () => {
   }
 };
 
+const focusable_headings = () => {
+  const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+  for (const heading of headings) {
+    const $instances = document.querySelectorAll(`.article ${heading}`);
+
+    for (const $instance of $instances) {
+      $instance.setAttribute('tabindex', '-1');
+    }
+  }
+};
+
 const main = () => {
   feather.replace();
 
@@ -173,4 +187,6 @@ const main = () => {
   footnotes();
 
   copy_button();
+
+  focusable_headings();
 };

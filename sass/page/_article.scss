@@ -139,30 +139,6 @@
       visibility: hidden;
     }
   }
-
-  :disabled,
-  [disabled] {
-    appearance: none;
-    filter: none;
-    color: blue;
-    opacity: 1;
-  }
-
-  // input[type='checkbox']:checked {
-  //   position: relative;
-
-  //   &::after {
-  //     content: '';
-  //     position: absolute;
-  //     top: 0;
-  //     bottom: 0;
-  //     left: 0;
-  //     right: 0;
-  //     overflow: hidden;
-  //     background-color: blue;
-  //     mix-blend-mode: overlay;
-  //   }
-  // }
 }
 
 .zola-anchor {
@@ -218,7 +194,7 @@
   }
 }
 
-.posts {
+.pages {
   display: flex;
   gap: 5em;
   justify-content: space-between;
