@@ -1,5 +1,12 @@
-<blockquote>
-  {{ body | markdown | safe }}
+<figure class="quote">
+  <blockquote {%- if cite_url %} cite="{{ cite_url}}" {% endif %}>
+    {{ body | markdown | safe }}
+  </blockquote>
 
-  <div class="author">{{ author }}</div>
-</blockquote>
+  <figcaption class="author">
+    &mdash; {{ author }}
+    {%- if cite -%}
+    ,&nbsp;<cite>{{ cite }}</cite>
+    {%- endif -%}
+  </figcaption>
+</figure>

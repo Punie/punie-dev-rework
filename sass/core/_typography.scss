@@ -1,67 +1,68 @@
 %heading {
-  font-family: $font-sans-serif;
-  font-weight: $semibold;
-}
+  --font-family: #{$font-sans};
+  --font-weight: #{$font-semibold};
 
-%paragraph {
-  font-family: $font-serif;
-  font-weight: $regular;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
 }
 
 .heading-1 {
   @extend %heading;
-  font-size: 3rem;
+
+  --font-size: #{font-size(3xl)};
+
+  @include mq {
+    --font-size: #{font-size(3xl, desktop)};
+  }
 }
 
 .heading-2 {
   @extend %heading;
-  font-size: 2.25rem;
+
+  --font-size: #{font-size(2xl)};
+
+  @include mq {
+    --font-size: #{font-size(2xl, desktop)};
+  }
 }
 
 .heading-3 {
   @extend %heading;
-  font-size: 2rem;
+
+  --font-size: #{font-size(xl)};
+
+  @include mq {
+    --font-size: #{font-size(xl, desktop)};
+  }
 }
 
 .heading-4 {
   @extend %heading;
-  font-size: 1.75rem;
+
+  --font-size: #{font-size(lg)};
+
+  @include mq {
+    --font-size: #{font-size(lg, desktop)};
+  }
 }
 
 .heading-5 {
   @extend %heading;
-  font-size: 1.5rem;
+
+  --font-size: #{font-size(base)};
+
+  @include mq {
+    --font-size: #{font-size(base, desktop)};
+  }
 }
 
 .heading-6 {
   @extend %heading;
-  font-size: 1.25rem;
-}
 
-.subheading {
-  font-family: $font-serif;
-  font-weight: $regular;
-  font-size: 1.5rem;
-}
+  --font-size: #{font-size(sm)};
 
-.overline {
-  font-family: $font-sans-serif;
-  font-weight: $bold;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-
-.paragraph-1 {
-  @extend %paragraph;
-  font-size: 1.125rem;
-}
-
-.paragraph-2 {
-  @extend %paragraph;
-  font-size: 1rem;
-}
-
-.paragraph-3 {
-  @extend %paragraph;
-  font-size: 0.875rem;
+  @include mq {
+    --font-size: #{font-size(sm, desktop)};
+  }
 }
