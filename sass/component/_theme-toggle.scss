@@ -1,0 +1,20 @@
+.theme-toggle {
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  width: 1.75em;
+  height: 1.75em;
+  border-radius: 50%;
+
+  background-color: $accent;
+
+  @include mq {
+    transition: transform 200ms ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

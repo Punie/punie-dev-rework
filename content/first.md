@@ -65,7 +65,7 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 > Remember Peter, with great power, comes great responsibilities. And I won’t be
 > here for ever to help you!
 
-{% quote(author="Uncle Ben") %}
+{% quote(author="Uncle Ben", cite="Spiderman", cite_url="https://www.imdb.com/title/tt0145487/") %}
 Remember Peter, with great power, comes great responsibilities. And I won’t be
 here for ever to help you!
 {% end %}

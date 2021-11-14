@@ -1,7 +1,8 @@
 .title {
-  font-family: $font-sans-serif;
-  font-size: 2em;
-  font-weight: $semibold;
+  // font-family: $font-sans;
+  // font-size: 2em;
+  // font-weight: $font-semibold;
+  @extend .heading-1;
   letter-spacing: -0.015em;
 
   margin-bottom: 0.5em;
@@ -13,7 +14,7 @@
 
 .meta {
   margin-block: 1em;
-  font-weight: $light;
+  font-weight: $font-light;
   font-size: 0.875rem;
   color: $secondary;
 }
@@ -26,7 +27,7 @@
     margin: 0;
     padding-left: 1em;
 
-    font-weight: $bold;
+    font-weight: $font-bold;
   }
 
   .author-picture {
@@ -40,23 +41,23 @@
   padding-bottom: 1rem;
 
   h2 {
-    font-size: 1.75em;
+    @extend .heading-2;
   }
 
   h3 {
-    font-size: 1.5em;
+    @extend .heading-3;
   }
 
   h4 {
-    font-size: 1.25em;
+    @extend .heading-4;
   }
 
   h5 {
-    font-size: 1.125em;
+    @extend .heading-5;
   }
 
   h6 {
-    font-size: 1em;
+    @extend .heading-6;
   }
 
   h1,
@@ -65,8 +66,6 @@
   h4,
   h5,
   h6 {
-    font-weight: $semibold;
-
     &:hover {
       .fa-link {
         visibility: visible;
@@ -85,11 +84,21 @@
     border-radius: 4px;
     font-family: $font-mono;
     font-size: 1rem;
-    font-weight: $semibold;
+    font-weight: $font-semibold;
     box-shadow: 0.5em 1em -0.125em rgba(0, 0, 0, 0.1),
       0 0px 0 1px rgba(0, 0, 0, 0.02);
   }
 
+  .quote > blockquote {
+    all: unset;
+
+    &::before,
+    &::after {
+      all: unset;
+    }
+  }
+
+  .quote,
   blockquote {
     display: flex;
     flex-direction: column;
@@ -112,9 +121,9 @@
     }
 
     .author {
-      font-family: $font-sans-serif;
+      font-family: $font-sans;
       font-size: 1.125rem;
-      font-weight: $bold;
+      font-weight: $font-bold;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -174,9 +183,9 @@
     margin-top: 1em;
   }
 
-  font-family: $font-sans-serif;
+  font-family: $font-sans;
   font-size: 0.875rem;
-  font-weight: $light;
+  font-weight: $font-light;
   letter-spacing: 0.015em;
 
   .footnote-definition-label {
@@ -199,7 +208,7 @@
   gap: 5em;
   justify-content: space-between;
 
-  font-family: $font-sans-serif;
+  font-family: $font-sans;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;

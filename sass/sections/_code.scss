@@ -43,8 +43,8 @@ pre {
   .copied:hover {
     opacity: 1;
 
-    color: $green;
-    border-color: $green;
+    color: $green-500;
+    border-color: $green-500;
 
     .fa-check {
       display: block;
@@ -68,7 +68,7 @@ pre {
 
       background-color: $grey-500;
       font-size: 0.875rem;
-      font-family: $font-sans-serif;
+      font-family: $font-sans;
     }
   }
 
@@ -142,9 +142,9 @@ $language-shortnames-map: (
   left: 0;
   right: 0;
 
-  font-family: $font-sans-serif;
+  font-family: $font-sans;
   font-size: 1rem;
-  font-weight: $semibold;
+  font-weight: $font-semibold;
 
   padding: 0.5em 1.5em;
   border-radius: 8px 8px 0 0;
