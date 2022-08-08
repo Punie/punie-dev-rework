@@ -2,9 +2,9 @@
 title = "Initial commit"
 date = 2021-10-17
 
-# [extra]
-# author = "Hugo Saracino"
-# photo = "img/hugo.jpg"
+[extra]
+author = "Hugo Saracino"
+photo = "img/hugo.jpg"
 +++
 
 This is the first article on this preview. Purely intended to showcase how the
