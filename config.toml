@@ -34,7 +34,7 @@ highlight_themes_css = [
 ]
 
 # A list of directories used to search for additional `.sublime-syntax` files.
-extra_syntaxes = []
+extra_syntaxes_and_themes = ["syntaxes"]
 
 # When set to "true", emoji aliases translated to their corresponding
 # Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)

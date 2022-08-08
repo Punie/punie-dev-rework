@@ -1,0 +1,3 @@
+@function font-size($size, $type: mobile) {
+  @return map-get(map-get($font-sizes, $type), $size);
+}

@@ -23,17 +23,28 @@ html:focus-within {
 }
 
 body {
+  --font-family: #{$font-sans};
+  --font-size: #{font-size(sm)};
+  --font-weight: #{$font-light};
+
   min-height: 100vh;
 
-  font-family: $font-serif;
-  font-size: 1.125rem;
-  font-weight: $regular;
-  color: $primary;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
+  color: $primary;
   background-color: $bg-light;
+
+  @include mq {
+    --font-family: #{$font-serif};
+    --font-size: #{font-size(sm, desktop)};
+    --font-weight: #{$font-regular};
+  }
 }
 
 h1,
@@ -42,8 +53,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-sans-serif;
-  font-weight: $semibold;
+  --font-family: #{$font-sans};
+  --font-weight: #{$font-semibold};
 
   &:first-child {
     margin-top: 0;
@@ -53,10 +64,10 @@ h6 {
 p {
   margin-block: 1em;
 
-  line-height: 175%;
+  line-height: 1.85;
 
   strong {
-    font-weight: $bold;
+    font-weight: $font-bold;
   }
 
   em {
@@ -79,24 +90,4 @@ img,
 picture {
   max-width: 100%;
   display: block;
-}
-
-#theme-toggle,
-#mobile-theme-toggle {
-  cursor: pointer;
-
-  display: grid;
-  place-items: center;
-
-  width: 2.5rem;
-  height: 2.5rem;
-
-  background-color: $accent;
-  border-radius: 50%;
-
-  transition: transform 200ms ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
 }

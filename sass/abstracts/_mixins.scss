@@ -1,4 +1,4 @@
-@mixin mq($size: 560px) {
+@mixin mq($size: $breakpoint-mobile) {
   @media only screen and (min-width: $size) {
     @content;
   }

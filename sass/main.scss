@@ -4,6 +4,7 @@
 
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+@import 'abstracts/functions';
 
 @import 'vendors/normalize';
 @import 'vendors/slideout';
@@ -11,6 +12,8 @@
 @import 'core/base';
 @import 'core/mobile';
 @import 'core/typography';
+
+@import 'component/theme-toggle';
 
 @import 'layout/header';
 @import 'layout/main';

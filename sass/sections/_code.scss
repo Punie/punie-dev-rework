@@ -43,8 +43,8 @@ pre {
   .copied:hover {
     opacity: 1;
 
-    color: $green;
-    border-color: $green;
+    color: $green-500;
+    border-color: $green-500;
 
     .fa-check {
       display: block;
@@ -68,7 +68,7 @@ pre {
 
       background-color: $grey-500;
       font-size: 0.875rem;
-      font-family: $font-sans-serif;
+      font-family: $font-sans;
     }
   }
 
@@ -114,16 +114,20 @@ pre {
       text-align: right;
       padding-left: 0.5rem;
 
-      opacity: 0.5;
+      color: hsla(218, 13%, 88%, 0.5);
       user-select: none;
+
+      mark {
+        color: hsl(218, 13%, 88%);
+      }
     }
 
     td:nth-of-type(2) {
       padding-left: 1rem;
       padding-right: 0.5rem;
 
-      mark {
-        background-color: $grey-600;
+      & > :not(mark) {
+        opacity: 0.67;
       }
     }
   }
@@ -131,6 +135,7 @@ pre {
 
 $language-shortnames-map: (
   elm: 'Elm',
+  idris: 'Idris',
   rs: 'Rust',
 );
 
@@ -142,9 +147,9 @@ $language-shortnames-map: (
   left: 0;
   right: 0;
 
-  font-family: $font-sans-serif;
+  font-family: $font-sans;
   font-size: 1rem;
-  font-weight: $semibold;
+  font-weight: $font-semibold;
 
   padding: 0.5em 1.5em;
   border-radius: 8px 8px 0 0;

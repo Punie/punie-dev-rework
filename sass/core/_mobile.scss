@@ -55,13 +55,10 @@
     @include mobile-menu-icon;
   }
 
-  #mobile-theme-toggle {
+  .theme-toggle {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-
-    width: 2rem;
-    height: 2rem;
   }
 }
 

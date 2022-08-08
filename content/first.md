@@ -2,9 +2,9 @@
 title = "Initial commit"
 date = 2021-10-17
 
-# [extra]
-# author = "Hugo Saracino"
-# photo = "img/hugo.jpg"
+[extra]
+author = "Hugo Saracino"
+photo = "img/hugo.jpg"
 +++
 
 This is the first article on this preview. Purely intended to showcase how the
@@ -65,7 +65,7 @@ footnote[^footnote-2] upon footnote[^footnote-3] (:construction:) yay!
 > Remember Peter, with great power, comes great responsibilities. And I won’t be
 > here for ever to help you!
 
-{% quote(author="Uncle Ben") %}
+{% quote(author="Uncle Ben", cite="Spiderman", cite_url="https://www.imdb.com/title/tt0145487/") %}
 Remember Peter, with great power, comes great responsibilities. And I won’t be
 here for ever to help you!
 {% end %}
