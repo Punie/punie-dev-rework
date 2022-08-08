@@ -1,0 +1,139 @@
+%YAML 1.2
+---
+# See https://www.sublimetext.com/docs/3/syntax.html
+# See https://www.sublimetext.com/docs/3/scope_naming.html
+name: Idris
+file_extensions:
+  - idr
+scope: source.idris
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: comments
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    - include: keywords
+    - include: numbers
+    - include: strings
+    - include: function_signature
+    - include: type
+
+  keywords:
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: \b(if|then|else|do|let|in|codata|record|dsl)\b
+      scope: keyword.control.idris
+    - match: \b(impossible|case|of|total|partial|mutual|infix|infixl|infixr)\b
+      scope: keyword.control.idris
+    - match: \b(where|with|syntax|proof|postulate|using|namespace|class|instance|interface|implementation|record|rewrite)\b
+      scope: keyword.control.idris
+    - match: \b(public|private|export|implicit)\b
+      scope: keyword.control.idris
+    - match: ^(module)\b
+      scope: keyword.other.idris
+    - match: \b(data)\b
+      scope: keyword.other.idris
+    - match: ^(import)\b
+      scope: keyword.control.import
+
+  numbers:
+    - match: \b(S|Z)\b
+      scope: constant.numeric.idris
+    - match: \b([0-9]+|0([xX][0-9a-fA-F]+|[oO][0-7]+))\b
+      scope: constant.numeric.idris
+    - match: \b([0-9]+\.[0-9]+([eE][+-]?[0-9]+)?|[0-9]+[eE][+-]?[0-9]+)\b
+      scope: constant.numeric.float.idris
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.idris
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.double.idris
+        - match: '\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\"''\&])'
+          scope: constant.character.escape.ascii.idris
+        - match: \\o[0-7]+|\\x[0-9A-Fa-f]+|\\[0-9]+
+          scope: constant.character.escape.octal.idris
+        - match: \^[A-Z@\[\]\\\^_]
+          scope: constant.character.escape.control.idris
+        - match: '"'
+          scope: punctuation.definition.string.end.idris
+          pop: true
+
+    - match: \'
+      scope: constant.character.escape.control.idris
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.single.idris
+        - match: '\\(NUL|SOH|STX|ETX|EOT|ENQ|ACK|BEL|BS|HT|LF|VT|FF|CR|SO|SI|DLE|DC1|DC2|DC3|DC4|NAK|SYN|ETB|CAN|EM|SUB|ESC|FS|GS|RS|US|SP|DEL|[abfnrtv\\\"''\&])'
+          scope: constant.character.escape.ascii.idris
+        - match: \\o[0-7]+|\\x[0-9A-Fa-f]+|\\[0-9]+
+          scope: constant.character.escape.octal.idris
+        - match: \^[A-Z@\[\]\\\^_]
+          scope: constant.character.escape.control.idris
+        - match: \'
+          scope: punctuation.definition.string.end.idris
+          pop: true
+
+  comments:
+    - match: --
+      scope: punctuation.definition.comment.idris
+      push:
+        - meta_scope: comment.line.idris
+        - match: $\n?
+          pop: true
+    - match: '{-'
+      scope: punctuation.definition.comment.idris
+      push:
+        - meta_scope: comment.block.idris
+        - match: '-}'
+          pop: true
+    - match: \|\|\|
+      scope: punctuation.definition.comment.idris
+      push:
+        - meta_scope: comment.block.documentation.idris
+        - match: $\n?
+          pop: true
+
+  function_declarations:
+    - include: function_signature
+
+  function_signature:
+    - match: '^(\s*)(?!--)(?:(\(\W\)|[\w'']+)|[\(\[])(?=[\s\[\]\(\)]*(?:\s*)((?::)|\u2237))'
+      captures:
+        2: entity.name.function.idris
+      push:
+        - meta_scope: meta.declaration.function.idris
+        - match: '^(?!\1\s)|(?=})'
+          pop: true
+        - match: (?=.*((:)|\u2237))
+          captures:
+            1: keyword.name.function.idris
+          push:
+            - meta_scope: meta.declaration.function.names.idris
+            - match: ((:)|\u2237)
+              captures:
+                1: keyword.other.colon.idris
+              pop: true
+            - match: '([a-z_][\w'']*|\(\W+\))'
+              scope: entity.name.function.idris
+        - include: type
+        - match: '\b[A-Z][\w'']*'
+          scope: entity.name.type.idris
+
+  type:
+    - match: \b(Type|Int|Nat|Integer|Float|Char|String|Ptr|Bits8|Bits16|Bits32|Bits64|Bool)\b
+      scope: storage.type.idris
+    - match: \(\)
+      scope: constant.language.idris
+    - match: \s*(->|\u2192)\s*
+      scope: keyword.operator.arrow.idris
+    - match: \s*(=>|\u21D2)\s*
+      scope: keyword.operator.big-arrow.idris
