@@ -70,14 +70,14 @@
 
 <nav class="pages">
   <div class="prev">
-    {% if page.earlier %}
-    <a href="{{ page.earlier.permalink }}" class="prev">{{ page.earlier.title }}</a>
+    {% if page.lower %}
+    <a href="{{ page.lower.permalink }}" class="prev">{{ page.lower.title }}</a>
     {% endif %}
   </div>
 
   <div class="next">
-    {% if page.later %}
-    <a href="{{ page.later.permalink }}" class="next">{{ page.later.title }}</a>
+    {% if page.higher %}
+    <a href="{{ page.higher.permalink }}" class="next">{{ page.higher.title }}</a>
     {% endif %}
   </div>
 </nav>
