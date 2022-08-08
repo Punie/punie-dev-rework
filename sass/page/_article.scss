@@ -1,7 +1,4 @@
 .title {
-  // font-family: $font-sans;
-  // font-size: 2em;
-  // font-weight: $font-semibold;
   @extend .heading-1;
   letter-spacing: -0.015em;
 
@@ -75,6 +72,10 @@
 
   p a {
     @include animated-underline;
+  }
+
+  .footnote-reference a::after {
+    display: none;
   }
 
   p > code {
@@ -253,4 +254,8 @@
   padding-bottom: 2em;
   border-bottom: solid 1px rgba($grey-500, 0.25);
   margin-bottom: 2em;
+}
+
+.read-more-link {
+  @include animated-underline;
 }
